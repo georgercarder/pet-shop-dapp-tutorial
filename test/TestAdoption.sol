@@ -5,5 +5,15 @@ import "truffle/DeployedAddress.sol";
 import "../contracts/Adoption.sol";
 
 contract TestAdoption {
-	Adoption adoption = Adoption(DeployedAddresses.Adoption());
+  Adoption adoption = Adoption(DeployedAddresses.Adoption());
+
+  // Testing the adopt() function
+  function testUserCanAdoptPet() public {
+    uint returnedId = adoption.adopt(8);
+
+    uint expected = 8;
+
+    Assert.equal(returnedId, expected, "Adoption of pet ID 8 should be recorded.")  
+  }
+
 }
